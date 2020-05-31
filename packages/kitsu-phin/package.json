@@ -1,0 +1,88 @@
+{
+  "version": "9.1.10",
+  "name": "kitsu-phin",
+  "description": "A simple, lightweight & framework agnostic JSON:API Node client using Phin",
+  "author": "James Harris <wopian@wopian.me>",
+  "contributors": [
+    "Brandon Martinez <me@brandonmartinez.com>",
+    "Daniel Skogly <daniel.skogly@protonmail.com>",
+    "Lukas Erlacher <erlacher@in.tum.de>",
+    "Matthew Dias <matthewdias@me.com>",
+    "Menthol <bennetteson@gmail.com>"
+  ],
+  "license": "MIT",
+  "main": "lib/index",
+  "module": "lib/index",
+  "types": "types/index.d.ts",
+  "homepage": "https://github.com/wopian/kitsu/tree/master/packages/kitsu#readme",
+  "repository": "https://github.com/wopian/kitsu/tree/master/packages/kitsu",
+  "bugs": {
+    "url": "https://github.com/wopian/kitsu/issues"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "keywords": [
+    "kitsu",
+    "kitsu.io",
+    "anime",
+    "manga",
+    "drama",
+    "json",
+    "api",
+    "wrapper",
+    "client",
+    "jsonapi",
+    "json-api",
+    "serialize",
+    "deserialize"
+  ],
+  "scripts": {
+    "docs:lint": "documentation lint src/index.js",
+    "docs:build": "documentation readme src/index.js --section=API -g true --sort-order source",
+    "docs:typescript": "tsc src/index.js --declaration --emitDeclarationOnly --allowJs --outDir types",
+    "rollup": "cross-env NODE_ENV=production rollup -c --environment BUILD:production",
+    "build": "yarn rollup"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "phin": "^3.4.1",
+    "kitsu-core": "^9.1.10",
+    "pluralize": "^8.0.0"
+  },
+  "size-limit": [
+    {
+      "path": "./lib/index.js",
+      "limit": "100 kb",
+      "brotli": true
+    },
+    {
+      "path": "./lib/index.mjs",
+      "limit": "100 kb",
+      "brotli": true
+    }
+  ],
+  "gitHead": "5c9778d191d17d7c9790cfc6d0f4e983b4742a53",
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "~4.5.0"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./lib/index": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./lib/index.js": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./lib/index.mjs": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    }
+  }
+}
